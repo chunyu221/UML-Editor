@@ -16,7 +16,7 @@ public class groupObject extends myObject {
 
     public void draw(Graphics g) {
         for (int i = 0; i < this.objects.size(); i++) {
-            myObject obj =  objects.get(i);
+            myObject obj = objects.get(i);
             obj.draw(g);
 
             if (obj.ports[0] != null) {
@@ -37,8 +37,6 @@ public class groupObject extends myObject {
                     }
                 }
             }
-
-            
 
             // paint bound
             if (selected) {
@@ -68,8 +66,8 @@ public class groupObject extends myObject {
 
     public int checkInside(Point p) {
         for (int i = 0; i < this.objects.size(); i++) {
-            myObject obj =  objects.get(i);
-            if (obj.checkInside(p) != -1){
+            myObject obj = objects.get(i);
+            if (obj.checkInside(p) != -1) {
                 this.selectedObj = obj;
                 return 4;
             }
@@ -79,7 +77,7 @@ public class groupObject extends myObject {
 
     public void resetPosition(int moveX, int moveY) {
         for (int i = 0; i < this.objects.size(); i++) {
-            myObject obj =  objects.get(i);
+            myObject obj = objects.get(i);
             obj.resetPosition(moveX, moveY);
         }
         setBounds();
@@ -93,7 +91,7 @@ public class groupObject extends myObject {
         for (int i = 0; i < this.objects.size(); i++) {
             myObject obj = this.objects.get(i);
             Point p1 = obj.getPoint();
-            Point p2 = new Point(p1.x+obj.width, p1.y+obj.height);
+            Point p2 = new Point(p1.x + obj.width, p1.y + obj.height);
             if (p1.x < xMin) {
                 xMin = p1.x;
             }
@@ -108,11 +106,11 @@ public class groupObject extends myObject {
             }
 
             // minPoint = new Point(xMin, yMin);
-            this.bound.setBounds(xMin, yMin, xMax-xMin, yMax-yMin);
+            this.bound.setBounds(xMin, yMin, xMax - xMin, yMax - yMin);
             this.x = xMin;
             this.y = yMin;
-            this.width = xMax-xMin;
-            this.height = yMax-yMin;
+            this.width = xMax - xMin;
+            this.height = yMax - yMin;
         }
     }
 

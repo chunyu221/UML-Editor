@@ -9,21 +9,21 @@ import java.util.ArrayList;
 import java.util.EventListener;
 import javax.swing.JPanel;
 
-public class myCanva extends JPanel{
-	
+public class myCanva extends JPanel {
+
 	private static myCanva instance = null;
 	private Mode modetype;
 	private EventListener listener;
 	private ArrayList<myObject> objects = new ArrayList<myObject>();
-	private ArrayList<myLine> lines = new ArrayList<myLine>();
+	// private ArrayList<myLine> lines = new ArrayList<myLine>();
 	private myLine line = null;
 	private myObject selectedObj = null;
 	private Rectangle selectZone = new Rectangle();
 	private int selectNum = 0;
-	
+
 	public myCanva() {
 	}
-	
+
 	public static myCanva getInstance() {
 		if (instance == null) {
 			instance = new myCanva();
@@ -34,17 +34,17 @@ public class myCanva extends JPanel{
 	public ArrayList<myObject> getObjectList() {
 		return this.objects;
 	}
-	
+
 	public void setModetype(Mode mode) {
-		this.modetype=mode;
-	}	
-	
+		this.modetype = mode;
+	}
+
 	public void addObject(myObject obj) {
 		this.objects.add(obj);
 	}
 
 	// public void addLine(myLine line) {
-	// 	this.lines.add(line);
+	// this.lines.add(line);
 	// }
 
 	public void setLine(myLine line) {
@@ -52,7 +52,7 @@ public class myCanva extends JPanel{
 	}
 
 	public void reloadMode() {
-		//System.out.println("setMode "+this.modename);
+		// System.out.println("setMode "+this.modename);
 		this.removeMouseListener((MouseListener) this.listener);
 		this.removeMouseMotionListener((MouseMotionListener) this.listener);
 		this.listener = this.modetype;
@@ -107,46 +107,44 @@ public class myCanva extends JPanel{
 		}
 		return false;
 	}
-	
-	public void paint(Graphics g) {		
+
+	public void paint(Graphics g) {
 		Dimension dim = this.getSize();
 		g.setColor(Color.white);
 		g.fillRect(0, 0, dim.width, dim.height);
 		// g.setColor(Color.black);
 		// Graphics2D g2 = (Graphics2D) g;
 		// g2.setStroke(new BasicStroke(2));
-		
+
 		// paint all objeccts
-		for (int i = 0 ; i < this.objects.size(); i++) {
+		for (int i = 0; i < this.objects.size(); i++) {
 			myObject obj = this.objects.get(i);
 			obj.draw(g);
 
-			
-
 			// // paint port
 			// if (obj.selected == true) {
-			// 	// System.out.println("paint port");
-			// 	obj.ports[0].drawPort(g);
-			// 	obj.ports[1].drawPort(g);
-			// 	obj.ports[2].drawPort(g);
-			// 	obj.ports[3].drawPort(g);
+			// // System.out.println("paint port");
+			// obj.ports[0].drawPort(g);
+			// obj.ports[1].drawPort(g);
+			// obj.ports[2].drawPort(g);
+			// obj.ports[3].drawPort(g);
 			// }
 			// // paint line
 			// for (int j = 0; j < 4; j++) {
-			// 	this.lines = obj.getPort(j).getLines();
-			// 	g.setColor(Color.black);
-			// 	for (int k = 0; k < this.lines.size(); k++) {
-			// 		myLine line = this.lines.get(k);
-			// 		line.draw(g);
-			// 	}
+			// this.lines = obj.getPort(j).getLines();
+			// g.setColor(Color.black);
+			// for (int k = 0; k < this.lines.size(); k++) {
+			// myLine line = this.lines.get(k);
+			// line.draw(g);
 			// }
-		}	
+			// }
+		}
 
 		// paint all lines
 		// g.setColor(Color.black);
 		// for (int i = 0; i < this.lines.size(); i++) {
-		// 	myLine line = this.lines.get(i);
-		// 	line.draw(g);
+		// myLine line = this.lines.get(i);
+		// line.draw(g);
 		// }
 
 		// 正在拉的線

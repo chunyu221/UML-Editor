@@ -1,4 +1,5 @@
 import java.awt.Graphics;
+
 public class myLine {
     protected int x1, x2, y1, y2;
     protected int arrow = 10;
@@ -9,10 +10,10 @@ public class myLine {
     }
 
     // public void createPort() {
-    //     myPort port1 = new myPort(x1, y1);
-    //     this.ports[0] = port1;
-    //     myPort port2 = new myPort(x2, y2);
-    //     this.ports[1] = port2;
+    // myPort port1 = new myPort(x1, y1);
+    // this.ports[0] = port1;
+    // myPort port2 = new myPort(x2, y2);
+    // this.ports[1] = port2;
     // }
 
     public void resetPort() {
@@ -27,6 +28,5 @@ public class myLine {
         this.x2 = (int) this.ports[1].x;
         this.y2 = (int) this.ports[1].y;
     }
-
 
 }
